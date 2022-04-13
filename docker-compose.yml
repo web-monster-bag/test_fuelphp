@@ -1,0 +1,50 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: ./docker/web
+      dockerfile: ./Dockerfile
+    container_name: "fuel-web"
+    privileged: true
+    ports:
+      - "9999:80"
+    volumes:
+      - "./resource:/var/www"
+    networks:
+      - fuel-network
+
+  php:
+    build:
+      context: ./docker/php
+      dockerfile: ./Dockerfile
+    container_name: "fuel-php"
+    privileged: true
+    volumes:
+      - "./resource:/var/www"
+    networks:
+      - fuel-network
+
+  db:
+    build:
+      context: ./docker/db
+      dockerfile: ./Dockerfile
+    container_name: "fuel-db"
+    ports:
+      - "3399:3306"
+    volumes:
+      - fuel-db-vol:/var/lib/mysql
+    networks:
+      - fuel-network
+
+networks:
+  fuel-network:
+    name: fuel-network
+
+volumes:
+  fuel-db-vol:
+    name: fuel-db-vol
+    driver: local
+  # php-fpm-socket:
+  #   name: php-fpm-socket
+  #   driver: local

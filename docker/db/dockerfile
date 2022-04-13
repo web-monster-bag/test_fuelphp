@@ -1,0 +1,8 @@
+FROM --platform=linux/x86_64 mysql:8.0
+COPY ./conf/my.conf /etc/mysql/conf.d/
+
+# 環境設定
+ENV MYSQL_DATABASE=fuel
+ENV MYSQL_USER=fuel
+ENV MYSQL_PASSWORD=fuel
+ENV MYSQL_ROOT_PASSWORD=fuel

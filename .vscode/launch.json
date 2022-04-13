@@ -1,0 +1,21 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            // xdebug
+            "name": "xdebug",
+            "type": "php",
+            "request": "launch",
+            "port": 9003,
+            "ignore": [
+                // ペイロード無効対策
+                "/var/www/fuel/vendor/**/*.php",
+                "/var/www/fuel/core/**/*.php",
+            ],
+            "pathMappings": {
+                // dockerのドキュメントルート:プロジェクトのドキュメントルート
+                "/var/www": "${workspaceFolder}/fuel"
+            }
+        },
+    ]
+}

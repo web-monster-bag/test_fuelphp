@@ -1,0 +1,22 @@
+# composer
+FROM composer:latest AS composer
+# php7.4で作る（8.0は対応外）
+FROM php:7.4-fpm
+
+COPY ./conf/php.ini /usr/local/etc/php/
+COPY ./conf/www.conf /etc/php-fpm.d
+COPY --from=composer /usr/bin/composer /usr/bin/composer
+
+RUN apt-get update \
+    # debian pkg
+    && apt-get install -y unzip libzip-dev zlib1g-dev \
+    # php pkg
+    && docker-php-ext-install opcache pdo_mysql mysqli zip \
+    # apcu
+    && yes | pecl install apcu-5.1.18 \
+    # xdebug
+    && pecl install xdebug-3.0.4 \
+    # Extension有効化
+    && docker-php-ext-enable opcache apcu xdebug pdo_mysql mysqli
+
+WORKDIR /var/www
