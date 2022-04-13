@@ -16,7 +16,7 @@ http://fuelphp.jp/
 
 ```sh
 $ docker compose build --no-cache && d-compo up -d
-$ docker compose exec php yes | composer install
+$ yes | docker compose exec php composer install
 $ docker compose exec php php oil r install
 ```
 
