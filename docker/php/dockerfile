@@ -1,7 +1,7 @@
 # composer
 FROM composer:latest AS composer
 # php7.4で作る（8.0は対応外）
-FROM php:7.4-fpm
+FROM php:7.3-fpm
 
 COPY ./conf/php.ini /usr/local/etc/php/
 COPY ./conf/www.conf /etc/php-fpm.d
@@ -13,7 +13,7 @@ RUN apt-get update \
     # php pkg
     && docker-php-ext-install opcache pdo_mysql mysqli zip \
     # apcu
-    && yes | pecl install apcu-5.1.18 \
+    && yes | pecl install apcu \
     # xdebug
     && pecl install xdebug-3.0.4 \
     # Extension有効化
