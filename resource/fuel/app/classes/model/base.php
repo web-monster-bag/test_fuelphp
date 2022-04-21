@@ -1,7 +1,5 @@
 <?php
 
-namespace Model;
-
 use Fuel\Core\Model;
 use Fuel\Core\DB;
 use Fuel\Core\Database_Connection;
@@ -17,7 +15,7 @@ use Fuel\Core\Database_Query_Builder_Delete;
  * 
  * @document https://btt.hatenablog.com/entry/2012/08/20/190737
  */
-abstract class Base extends Model
+abstract class Model_Base extends Model
 {
     /**
      * プライマリキー
@@ -80,8 +78,9 @@ abstract class Base extends Model
 
     /**
      * select
+     * select_model(['column1, column2, ...])
      *
-     * @param array|null $columns
+     * @param array|null $Columns
      * @return Database_Query_Builder_Select
      */
     public function select_model(array $columns = null): Database_Query_Builder_Select

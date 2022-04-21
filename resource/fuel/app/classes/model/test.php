@@ -1,8 +1,6 @@
 <?php
 
-namespace Model;
-
-final class Test extends Base
+final class Model_Test extends Model_Base
 {
     public const USERNAME = 'username';
     public const PASSWORD = 'password';
