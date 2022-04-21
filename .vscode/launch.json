@@ -6,6 +6,7 @@
             "name": "xdebug",
             "type": "php",
             "request": "launch",
+            "hostname": "0.0.0.0",
             "port": 9003,
             "ignore": [
                 // ペイロード無効対策
@@ -14,7 +15,7 @@
             ],
             "pathMappings": {
                 // dockerのドキュメントルート:プロジェクトのドキュメントルート
-                "/var/www": "${workspaceFolder}/fuel"
+                "/var/www": "${workspaceFolder}/resource"
             }
         },
     ]

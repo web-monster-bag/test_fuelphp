@@ -1,6 +1,4 @@
-# composer
 FROM composer:latest AS composer
-# php7.4で作る（8.0は対応外）
 FROM php:7.3-fpm
 
 COPY ./conf/php.ini /usr/local/etc/php/
