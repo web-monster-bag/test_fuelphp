@@ -1,7 +1,11 @@
 -- 認証方式を変更
-use mysql;
-ALTER USER 'root'@'%' IDENTIFIED WITH mysql_native_password BY fuel;
-ALTER USER 'fuel'@'%' IDENTIFIED WITH mysql_native_password BY fuel;
+USE mysql;
+ALTER USER 'root'@'%' IDENTIFIED
+WITH mysql_native_password
+BY 'fuel';
+ALTER USER 'fuel'@'%' IDENTIFIED
+WITH mysql_native_password
+BY 'fuel';
 
 -- データベース指定
 USE fuel;

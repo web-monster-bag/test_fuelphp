@@ -30,6 +30,7 @@ services:
       context: ./docker/db
       dockerfile: ./Dockerfile
     container_name: "fuel-db"
+    # command: --default-authentication-plugin=mysql_native_password
     ports:
       - "3399:3306"
     volumes:
