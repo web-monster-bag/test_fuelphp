@@ -1,16 +1,10 @@
-# fuelPHP学習
+# 目的
 
-* fuelPHPのローカル環境を作成して簡単なApiを作成する
+* FuelPHPのローカル環境を構築して簡単なApiを作成する
 
 ## ドキュメント
 
-http://fuelphp.jp/
-
-## 進捗
-
-* [X] ~~*Docker環境構築*~~ [2022-04-08]
-* [X] ~~*fuelプロジェクト作成*~~ [2022-04-08]
-* [ ] getリクエストを飛ばして値を返すロジックを作成
+https://fuelphp.com/docs/
 
 ## 環境構築
 
@@ -22,7 +16,21 @@ $ docker compose exec php php oil r install
 
 ![](./images/fuel_top.png)
 
-## テスト用コンテナ
+## テスト
+
+### リクエストパラメータ
+
+```sh
+# DBデータをjson形式で取得
+$ curl http://localhost:9999/api/test/read | jq
+# DBにデータを登録
+$ curl -H "multipart/form-data" \
+-F "password=test" \
+-F "username=test" \
+http://localhost:9999/api/test/write
+```
+
+### テスト用コンテナ
 
 ```sh
 $ dokcer image pull debian:11-slim
