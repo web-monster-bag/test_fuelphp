@@ -34,6 +34,7 @@ services:
       - "3399:3306"
     volumes:
       - fuel-db-vol:/var/lib/mysql
+      - ./docker/db/initdb.d:/docker-entrypoint-initdb.d
     networks:
       - fuel-network
 
@@ -45,6 +46,3 @@ volumes:
   fuel-db-vol:
     name: fuel-db-vol
     driver: local
-  # php-fpm-socket:
-  #   name: php-fpm-socket
-  #   driver: local
